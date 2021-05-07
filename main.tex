@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{amsmath}
+
+\title{Note: high-order harmonic generation by using the CESE method}
+\author{Yung-Yu Chen}
+\date{May 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Literature review}
+
+\begin{itemize}
+    \item High order harmonic generation in solids: a review on recent numerical methods (2019) \cite{yu_high_2019}
+    \item Time-dependent population imaging for solid high harmonic generation (2017) \cite{liu_time-dependent_2017}
+\end{itemize}
+
+\section{Governing equations}
+
+Time-dependent Schrodinger equation (?):
+
+\begin{align}
+i\frac{\partial \Psi(x, y, z, t)}{\partial t} &= -\frac{1}{2}\nabla^2\Psi + V(r)\Psi + H'(x, y, z, t)\Psi \\
+r &= \sqrt{x^2 + y^2 + z^2} \\
+V(r) &= -\frac{1}{r} - \frac{a_1e^{-a_2r} + a_3 re^{-a_4r} + a_5 e^{-a_6r}}{r} \\
+H' &= \mathbf{r} \cdot \mathbf{E}(t)
+\end{align}
+
+$V(r)$ is an atomic model potential, $H'$ is the interaction between the
+atomic electron and laser field in dipole approximation.
+
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{abbrvnat}
+\bibliography{references}
+
+\end{document}
