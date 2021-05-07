@@ -1,0 +1,16 @@
+/log/
+/handover
+/*_eps/
+/*.aux
+/*.bbl
+/*.blg
+/*.dvi
+/*.log
+/*.toc
+/*.out
+/*.xwm
+/*.synctex.gz
+/*.pdfsync
+/*.pdf
+/*.ps
+/tmp

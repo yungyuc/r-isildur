@@ -1,0 +1,83 @@
+% Github link to this file:
+% https://github.com/yungyuc/r-isildur/blob/master/note/isildur_note.tex
+
+% Overleaf document link:
+% https://www.overleaf.com/project/6093eb9176f838fa8c3da086
+
+\documentclass{isildur}
+
+%\usepackage{lmodern}
+
+\usepackage[printwatermark]{xwatermark}
+\newwatermark[allpages,color=black!15,angle=55,scale=5,xpos=0,ypos=0]%
+{DRAFT}
+
+%\doublespacing
+\linespread{1.2}
+
+\title{
+%
+Note: high-order harmonic generation by using the CESE method
+%
+}
+
+\author{
+%
+Yung-Yu Chen
+%
+}
+
+\date{May 2021}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\chapter{Literature Review}
+\label{c:review}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+  \item High order harmonic generation in solids: a review on recent numerical
+  methods (2019) \cite{yu_high_2019}
+  \item Time-dependent population imaging for solid high harmonic generation
+  (2017) \cite{liu_time-dependent_2017}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\chapter{Governing equations}
+\label{c:goveq}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Time-dependent Schrodinger equation (TDSE) \cite{briggs_derivation_2007}:
+
+\begin{align}
+  i\frac{\partial \Psi(x, y, z, t)}{\partial t}
+  &= -\frac{1}{2}\nabla^2\Psi + V(r)\Psi + H'(x, y, z, t)\Psi
+\end{align}
+
+$\Psi$ is the wave function.  $V(r)$ is an atomic model potential.  $H'$ is the
+interaction between the atomic electron and laser field in dipole
+approximation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliography}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\bibliographystyle{myunsrtnat} % no sort (order in appearance)
+\bibliographystyle{myplainnat} % sort by author
+\bibliography{isildur}
+
+\end{document}
+
+% vim: set et sw=2 ts=2 sts=2 tw=79:
