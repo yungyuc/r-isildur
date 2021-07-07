@@ -207,7 +207,56 @@ In \cite{burnett_calculation_1992}, parameters in atomic units (au):
   \item Fig.2 and Fig.4 are to calibrate.  Fig.2 is our acceleration function
   of Eq.~(\ref{e:a(t)}).  Fig.4 is obtained by use their Eq.(1) with the
   acceleration function of Eq.~(\ref{e:a(t)}).
+  
+Note that the asymptotic behavior $V(x)\rightarrow -1/|x|$, the range of $x$ must be large to keep a good representation of the system. For the case of laser power intensity $3.2\times 10^{15} W/cm^2$, the electron has been ionized much early before the end of pulse. We test the intensity $2\times 10^{14} W/cm^2$ case only and calculated the acceleration function and its HHG spectrum. ie, Fig.2a and Fig.4a in PRA45.3347.
+\begin{figure}[htbp]
+\centering
+\mbox{\rotatebox{-90}{\scalebox{0.5}[0.7]{
+\includegraphics[width=\linewidth]{fig1a.eps}} }}
+\caption{Acceleration function with x in [-100,100]. Green line is the norm vs time.
+ }
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\mbox{\rotatebox{-90}{\scalebox{0.5}[0.7]{
+\includegraphics[width=\linewidth]{fig1b.eps}} }}
+\caption{HHG spectrum with x in [-100,100].
+ }
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\mbox{\rotatebox{-90}{\scalebox{0.5}[0.7]{
+\includegraphics[width=\linewidth]{fig2a.eps}} }}
+\caption{Acceleration function with x in [-1500,1500]. The norm is 1 till the end. It means wave function lies inside the range all the time.
+ }
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\mbox{\rotatebox{-90}{\scalebox{0.5}[0.7]{
+\includegraphics[width=\linewidth]{fig2b.eps}} }}
+\caption{HHG spectrum with x in [-1500,1500].
+ }
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\mbox{\rotatebox{-90}{\scalebox{0.5}[0.7]{
+\includegraphics[width=\linewidth]{fig3a.eps}} }}
+\caption{ Calculation by p-space method. Velocity and norm vs time.
+ }
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\mbox{\rotatebox{-90}{\scalebox{0.5}[0.7]{
+\includegraphics[width=\linewidth]{fig3b.eps}} }}
+\caption{HHG spectrum by p-space method.
+ }
+\end{figure}
 
+Apparently, $ x\in[-100,100]$ is too small in range and results Figs.2.1,2.2 are not reliable.
+%
+During the development of CESE code, Figs.2.3 and 2.4 can be used for comparison where 51200 grids in x were used. Since there is Fast Fourier Transform routine, a job with 32768 time steps takes only a few minutes.
+%
+The Fig.2.6 is accurate, it takes time about 24 hours to finish a job. Hope to  parallelize the f90 version if necessary. 
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
