@@ -19,4 +19,4 @@ PYBIND11_MODULE(_libst, mod) // NOLINT
     spacetime::python::initialize(mod);
 }
 
-// vim: set et sw=4 ts=4:
+// vim: set et sw=4 ts=4 sts=4:

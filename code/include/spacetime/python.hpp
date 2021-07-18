@@ -17,8 +17,10 @@
 
 namespace spacetime
 {
+
 namespace python
 {
+
 namespace detail
 {
 
@@ -72,7 +74,8 @@ inline void initialize_impl(pybind11::module & mod)
       , spy::WrapLinearScalarSelm
     >(mod, "LinearScalar", "a linear scalar equation");
 
-    add_solver<
+    add_solver
+    <
         spy::WrapInviscidBurgersSolver
       , spy::WrapInviscidBurgersCelm
       , spy::WrapInviscidBurgersSelm
@@ -89,6 +92,7 @@ inline void initialize(pybind11::module & mod)
 }
 
 } /* end namespace python */
+
 } /* end namespace spacetime */
 
-/* vim: set et ts=4 sw=4: */
+/* vim: set et sw=4 ts=4 sts=4: */

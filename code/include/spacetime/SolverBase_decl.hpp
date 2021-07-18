@@ -59,7 +59,8 @@ public:
         return ret;
     }
 
-    SolverBase(
+    SolverBase
+    (
         std::shared_ptr<Grid> const & grid
       , value_type time_increment
       , size_t nvar

@@ -51,7 +51,8 @@ class LinearScalarSolverTC(unittest.TestCase):
                          [e.xctr for e in self.svr.selms(odd_plane=False)])
 
         # On odd plane.
-        self.assertEqual(len(self.svr.xctr(odd_plane=True)), self.svr.grid.ncelm)
+        self.assertEqual(len(self.svr.xctr(odd_plane=True)),
+                         self.svr.grid.ncelm)
         self.assertEqual(self.svr.xctr().tolist(), self.xcrd.tolist())
         self.assertEqual(self.svr.xctr(odd_plane=True).tolist(),
                          [e.xctr for e in self.svr.selms(odd_plane=True)])
@@ -137,16 +138,15 @@ class LinearScalarSolverTC(unittest.TestCase):
 
 class LinearScalarGridTestTC(unittest.TestCase):
     """
-    Compare linear solver's solution wtih exact solution,
-    because solutions of computation field is a vector,
-    therefore compared the norm of difference bewteen solver's solution
-    and exact solution.
+    Compare linear solver's solution wtih exact solution, because solutions of
+    computation field is a vector, therefore compared the norm of difference
+    bewteen solver's solution and exact solution.
 
-    By comparing norm of difference bewteen solver's solution and exact 
-    solution we can check if the linear solver is work properly
-    or check if the solver's mathematical model is correct.
+    By comparing norm of difference bewteen solver's solution and exact
+    solution we can check if the linear solver is work properly or check if the
+    solver's mathematical model is correct.
     """
-    
+
     @staticmethod
     def _build_solver(resolution):
         grid = libst.Grid(0, 4 * 2 * np.pi, resolution)
@@ -186,7 +186,7 @@ class LinearScalarGridTestTC(unittest.TestCase):
     def test_grid_test(self):
         _norm = lambda vec, ord: sum(np.abs(vec) ** ord) ** (1 / ord)
 
-        grid_num = [320, 640, 1280, 2560, 5120, 10240, 20480, 
+        grid_num = [320, 640, 1280, 2560, 5120, 10240, 20480,
                     40960, 81920, 163840, 327680]
         dx = []
         err = []
@@ -197,17 +197,29 @@ class LinearScalarGridTestTC(unittest.TestCase):
             exact_sol = self._exact_solution(svr, it_num, np.sin)
             dx.append(svr.grid.ncelm)
             err.append(_norm(svr.get_so0(0).ndarray - exact_sol, 1))
-        
-        _rate = lambda err, dx_rate: abs(math.log(abs(err)) / math.log(abs(dx_rate)))
-        
-        self.assertAlmostEqual(1.0, _rate(err[0]/err[1], dx[0]/dx[1]), places=1)
-        self.assertAlmostEqual(1.0, _rate(err[1]/err[2], dx[1]/dx[2]), places=1)
-        self.assertAlmostEqual(1.1, _rate(err[2]/err[3], dx[2]/dx[3]), places=1)
-        self.assertAlmostEqual(1.0, _rate(err[3]/err[4], dx[3]/dx[4]), places=1)
-        self.assertAlmostEqual(1.0, _rate(err[4]/err[5], dx[4]/dx[5]), places=1)
-        self.assertAlmostEqual(1.0, _rate(err[5]/err[6], dx[5]/dx[6]), places=1)
-        self.assertAlmostEqual(0.87, _rate(err[6]/err[7], dx[6]/dx[7]), places=2)
-        self.assertAlmostEqual(1.0, _rate(err[7]/err[8], dx[7]/dx[8]), places=1)
-        self.assertAlmostEqual(1.0, _rate(err[8]/err[9], dx[8]/dx[9]), places=1)
-        self.assertAlmostEqual(1.0, _rate(err[9]/err[10], dx[9]/dx[10]), places=1)
-# vim: set et sw=4 ts=4:
+
+        _rate = lambda err, dx_rate: (
+            abs(math.log(abs(err)) / math.log(abs(dx_rate))))
+
+        self.assertAlmostEqual(1.0, _rate(err[0]/err[1], dx[0]/dx[1]),
+                               places=1)
+        self.assertAlmostEqual(1.0, _rate(err[1]/err[2], dx[1]/dx[2]),
+                               places=1)
+        self.assertAlmostEqual(1.1, _rate(err[2]/err[3], dx[2]/dx[3]),
+                               places=1)
+        self.assertAlmostEqual(1.0, _rate(err[3]/err[4], dx[3]/dx[4]),
+                               places=1)
+        self.assertAlmostEqual(1.0, _rate(err[4]/err[5], dx[4]/dx[5]),
+                               places=1)
+        self.assertAlmostEqual(1.0, _rate(err[5]/err[6], dx[5]/dx[6]),
+                               places=1)
+        self.assertAlmostEqual(0.87, _rate(err[6]/err[7], dx[6]/dx[7]),
+                               places=2)
+        self.assertAlmostEqual(1.0, _rate(err[7]/err[8], dx[7]/dx[8]),
+                               places=1)
+        self.assertAlmostEqual(1.0, _rate(err[8]/err[9], dx[8]/dx[9]),
+                               places=1)
+        self.assertAlmostEqual(1.0, _rate(err[9]/err[10], dx[9]/dx[10]),
+                               places=1)
+
+# vim: set et sw=4 ts=4 sts=4 tw=79:
