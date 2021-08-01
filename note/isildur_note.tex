@@ -272,6 +272,35 @@ parallelize the f90 version if necessary.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
+\chapter{Formulation for the CESE Method}
+\label{c:cesef}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Rewrite the Eq.~(\ref{e:tdse}) in a simpler form
+%
+\begin{align}
+  i\frac{\partial \Psi(\mathbf{r}, t)}{\partial t}
+    &= -\frac{1}{2}\nabla^2\Psi(\mathbf{r}, t) + F(\mathbf{r}, t)\Psi
+    \label{e:tdse:simple}
+\end{align}
+%
+where $F = V + H'$.  Separate the real and imaginary components of the
+equations
+\begin{alignat}{3}
+  \frac{\partial \Psi_r}{\partial t} &=
+  &-& \frac{1}{2} \nabla^2 \Psi_i &+& (F_r\Psi_i + F_i\Psi_r)
+  \label{e:tdse:simple:r} \\
+  \frac{\partial \Psi_i}{\partial t} &=
+  & & \frac{1}{2} \nabla^2 \Psi_r &-& (F_r\Psi_r + F_i\Psi_i)
+  \label{e:tdse:simple:i}
+\end{alignat}
+%
+Because there is not first-order derivative with respect to space, the phase
+velocity in the equation is zero.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
 \clearpage
 \addcontentsline{toc}{chapter}{Bibliography}
 %%
