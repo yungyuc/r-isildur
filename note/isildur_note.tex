@@ -8,7 +8,7 @@
 %\documentclass[aps,pra,preprint]{revtex4-2}
 
 %\usepackage{lmodern}
-
+\usepackage{amsmath}
 \usepackage[printwatermark]{xwatermark}
 \newwatermark[allpages,color=black!15,angle=55,scale=5,xpos=0,ypos=0]%
 {DRAFT}
@@ -297,7 +297,35 @@ equations
 \end{alignat}
 %
 Because there is not first-order derivative with respect to space, the phase
-velocity in the equation is zero.
+velocity in the equation is zero.  The lack of the phase velocity can be shown
+more clearer in one dimensional space
+\begin{align}
+  i\frac{\partial\Psi}{\partial t}
+    + \frac{1}{2} \frac{\partial^2 \Psi}{\partial x^2}
+    = F\Psi
+\end{align}
+Compared to the standard wave equation in the first-dimensional space
+\begin{align}
+  \frac{\partial u}{\partial t} + a\frac{\partial u}{\partial x} = 0
+\end{align}
+The 1D TDSE has only the (second-order) diffusion term but not the (first-order)
+convection term, and the phase velocity (wave speed) $a$ is trivial.
+
+If we denote the space-time derivative $\triangledown=(d/dt, d/dx)$, then the 
+TDSE will be in the form
+\begin{align*}
+  \triangledown \cdot (i\Psi, \Psi_x/2)= F\Psi   
+\end{align*}
+Apply the Gauss law, we have
+\begin{align*}
+  \int (i\Psi, \Psi_x/2)\cdot ds=\int F\Psi dtdx
+\end{align*}
+where $ds$ is the line element in space-time, from this we derive the CESE eqs.
+This treatment is similar to how the CESE method was applied to the Navier-Stokes
+equation that has both the first-order term $u_x$ and second-order term $u_{xx}$,
+but it was assumed that the convection term is much stronger than the diffusion
+term in pp. 320 in [Chang 95].  It is not clear to me how the CESE method behaves
+when the diffusion term dominates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
