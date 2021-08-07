@@ -13,8 +13,10 @@
 # Build with clang-tidy
 #   make USE_CLANG_TIDY=ON
 
-ifneq (,$(wildcard ./setup.mk))
-	include ./setup.mk
+SETUP_FILE ?= ./setup.mk
+
+ifneq (,$(wildcard $(SETUP_FILE)))
+	include $(SETUP_FILE)
 endif
 
 HIDE_SYMBOL ?= OFF
@@ -27,6 +29,7 @@ NB_ARGS ?=
 CMAKE_ARGS ?=
 VERBOSE ?=
 GDB ?=
+RUNENV += PYTHONPATH=$(CODE_ROOT):$(MODMESH_ROOT)
 
 export MODMESH_ROOT
 
@@ -75,7 +78,7 @@ gtest: $(BUILD_PATH)/gtests/libst_gtests
 
 .PHONY: pytest
 pytest: $(CODE_ROOT)/libst/_libst$(pyextsuffix)
-	env PYTHONPATH=$(CODE_ROOT):$(MODMESH_ROOT) $(PYTEST) $(PYTEST_OPTS) tests/
+	env $(RUNENV) $(PYTEST) $(PYTEST_OPTS) tests/
 
 .PHONY: cmake
 cmake: $(BUILD_PATH)/Makefile
@@ -103,7 +106,8 @@ $(BUILD_PATH)/Makefile: CMakeLists.txt Makefile
 	echo $(MODMESH_ROOT) ; \
 	mkdir -p $(BUILD_PATH) ; \
 	cd $(BUILD_PATH) ; \
-	cmake $(CODE_ROOT) \
+	env $(RUNENV) \
+		cmake $(CODE_ROOT) \
 		-DCMAKE_INSTALL_PREFIX=$(CODE_ROOT) \
 		-DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE) \
 		-DHIDE_SYMBOL=$(HIDE_SYMBOL) \
