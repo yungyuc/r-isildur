@@ -17,6 +17,7 @@
 #include "spacetime/SolverBase.hpp"
 #include "spacetime/Solver.hpp"
 #include "spacetime/Selm.hpp"
+#include "spacetime/kernel/bernett.hpp"
 #include "spacetime/kernel/linear_scalar.hpp"
 #include "spacetime/kernel/inviscid_burgers.hpp"
 #include "spacetime/io.hpp"

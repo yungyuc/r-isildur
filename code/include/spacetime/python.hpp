@@ -10,6 +10,7 @@
 #define FORCE_IMPORT_ARRAY
 #include "modmesh/python/python.hpp"
 
+#include "spacetime/python/wrapper_bernett.hpp"
 #include "spacetime/python/wrapper_linear_scalar.hpp"
 #include "spacetime/python/wrapper_inviscid_burgers.hpp"
 #include "spacetime/python/wrapper_spacetime.hpp"
@@ -73,6 +74,13 @@ inline void initialize_impl(pybind11::module & mod)
       , spy::WrapLinearScalarCelm
       , spy::WrapLinearScalarSelm
     >(mod, "LinearScalar", "a linear scalar equation");
+
+    add_solver
+    <
+        spy::WrapBernettSolver
+      , spy::WrapBernettCelm
+      , spy::WrapBernettSelm
+    >(mod, "Bernett", "Bernett's problem");
 
     add_solver
     <

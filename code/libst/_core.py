@@ -15,6 +15,7 @@ from ._libst import (
     Solver,
     InviscidBurgersSolver,
     LinearScalarSolver,
+    BernettSolver,
 )
 
 
@@ -27,6 +28,7 @@ __all__ = [
     'SolverProxy',
     'InviscidBurgersSolver',
     'LinearScalarSolver',
+    'BernettSolver',
 ]
 
 

@@ -100,6 +100,29 @@ std::ostream& operator<<(std::ostream& os, const LinearScalarSelm & elm)
     return os;
 }
 
+inline
+std::ostream& operator<<(std::ostream& os, const BernettSolver & sol)
+{
+    os << "BernettSolver(grid=" << sol.grid() << ")";
+    return os;
+}
+
+inline
+std::ostream& operator<<(std::ostream& os, const BernettCelm & elm)
+{
+    os << "BernettCelm(" << (elm.on_even_plane() ? "even" : "odd") << ", ";
+    os << "index=" << elm.index() << ", x=" << elm.x() << ", xneg=" << elm.xneg() << ", xpos=" << elm.xpos() << ")";
+    return os;
+}
+
+inline
+std::ostream& operator<<(std::ostream& os, const BernettSelm & elm)
+{
+    os << "BernettSelm(" << (elm.on_even_plane() ? "even" : "odd") << ", ";
+    os << "index=" << elm.index() << ", x=" << elm.x() << ", xneg=" << elm.xneg() << ", xpos=" << elm.xpos() << ")";
+    return os;
+}
+
 } /* end namespace spacetime */
 
 /* vim: set et ts=4 sw=4: */

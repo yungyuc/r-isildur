@@ -17,6 +17,7 @@ from ._core import (
     SolverProxy,
     InviscidBurgersSolver,
     LinearScalarSolver,
+    BernettSolver,
 )
 
 from ._pstcanvas import (
@@ -34,6 +35,7 @@ __all__ = [
     'SolverProxy',
     'InviscidBurgersSolver',
     'LinearScalarSolver',
+    'BernettSolver',
     # _pstcanvas
     'PstCanvas',
 ]
